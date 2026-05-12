@@ -68,20 +68,10 @@ public class Magasin {
 		return(res);
 	}
 
-	private int  indiceMinAlbum(int debut){
+	private int  indiceMin(int debut, ComparateurCd comp){
 		int indiceMin = debut;
 		for(int i = debut + 1; i < listeCds.size(); i++){
-			if(listeCds.get(i).comparerParAlbum(listeCds.get(indiceMin))<0) {
-				indiceMin = i;
-			}
-		}
-		return indiceMin;
-	}
-
-	private int  indiceMinArtiste(int debut){
-		int indiceMin = debut;
-		for(int i = debut + 1; i < listeCds.size(); i++){
-			if(listeCds.get(i).comparerParArtiste(listeCds.get(indiceMin))<0) {
+			if(comp.etreAvant(listeCds.get(i), listeCds.get(indiceMin))) {
 				indiceMin = i;
 			}
 		}
@@ -94,17 +84,10 @@ public class Magasin {
 		listeCds.set(j,temp);
 	}
 
-	public void trierAlbum(){
+	public void trier(ComparateurCd comp){
 		for(int i = 0; i < listeCds.size() -1; i++){
-			int min = indiceMinAlbum(i);
-			echanger(i,min);
-		}
-	}
-
-	public void trierArtiste(){
-		for(int i = 0; i < listeCds.size() -1; i++){
-			int min = indiceMinArtiste(i);
-			echanger(i,min);
+			int min = indiceMin(i, comp);
+			echanger(i, min);
 		}
 	}
 

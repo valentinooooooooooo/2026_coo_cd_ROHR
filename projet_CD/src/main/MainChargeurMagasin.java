@@ -3,6 +3,9 @@ package main;
 import java.io.IOException;
 import java.util.Scanner;
 
+import donnees.CD;
+import donnees.ComparateurAlbum;
+import donnees.ComparateurCd;
 import donnees.Magasin;
 import XML.ChargeurMagasin;
 
@@ -30,11 +33,12 @@ public class MainChargeurMagasin {
 		sc.nextLine();
 		sc.close();
 
-		resultat.trierArtiste();
+		resultat.trier();
 		System.out.println(resultat);
 
-		resultat.trierAlbum();
-		System.out.println(resultat);
+		resultat.trier(){
+			System.out.println(resultat);
+		}
 
 	}
 
