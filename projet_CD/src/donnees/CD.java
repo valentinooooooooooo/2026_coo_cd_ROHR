@@ -97,5 +97,21 @@ public class CD {
 		return (resultat);
 	}
 
-	// TODO 
+	public int comparerParArtiste(CD autreCD){
+		return this.nomArtiste.compareToIgnoreCase(autreCD.nomArtiste);
+	}
+
+	public int comparerParAlbum(CD autreCD){
+		return this.nomCD.compareToIgnoreCase(autreCD.nomCD);
+	}
+
+	public String getNomArtiste(){
+		return nomArtiste;
+	}
+
+	public String getNomCD(){
+		return nomCD;
+	}
+
+
 }
