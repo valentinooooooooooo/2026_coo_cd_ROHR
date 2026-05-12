@@ -6,24 +6,18 @@ import java.io.FileNotFoundException;
 public class TestChargeurMagasin {
 
     private static final String REPERTOIRE_VALIDE = "projet_CD/musicbrainzSimple/";
-
     private static final String REPERTOIRE_INVALIDE = "";
 
-    public void testChargerMagasinRepertoireValide() throws Exception {
+    public void testRepertoireValide() throws Exception {
         ChargeurMagasin chargeur = new ChargeurMagasin(REPERTOIRE_VALIDE);
-        Magasin magasin = assertDoesNotThrow(
-                chargeur::chargerMagasin);
+        Magasin magasin = chargeur.chargerMagasin();
         assertNotNull(magasin);
-        assertTrue(magasin.getNombreCds() > 0,
-                "le magasin doit contenir un CD");
+        assertTrue(magasin.getNombreCds() > 0);
     }
 
-    public void testChargerMagasinRepertoireInvalide() {
+    public void testRepertoireInvalide() {
         ChargeurMagasin chargeur = new ChargeurMagasin(REPERTOIRE_INVALIDE);
-        assertThrows(
-                FileNotFoundException.class,
-                chargeur::chargerMagasin,
-                "chargerMagasin doit lever une exception pour un repertoire inexistant");
+        assertThrows(FileNotFoundException.class, chargeur::chargerMagasin);
     }
 }
 
