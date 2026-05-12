@@ -7,7 +7,6 @@ public class TestTri {
 
     public void setUp() {
         magasin = new Magasin();
-        // insertion dans un ordre non alphabetique
         magasin.ajouteCd(new CD("Radiohead",  "The Bends"));
         magasin.ajouteCd(new CD("Amon Tobin", "Bricolage"));
         magasin.ajouteCd(new CD("Daft Punk",  "Alive 2007"));
