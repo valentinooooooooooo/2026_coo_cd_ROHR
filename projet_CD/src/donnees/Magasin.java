@@ -91,5 +91,30 @@ public class Magasin {
 		}
 	}
 
+	public void trier(){
+		trier(new ComparateurAlbum());
+	}
+
+	public ArrayList<CD> chhercherArtiste(String nomArtiste){
+		ArrayList<CD> resultat = new ArrayList<CD>();
+		for (CD cd : listeCds){
+			if(cd.getNomArtiste().equalsIgnoreCase(nomArtiste)){
+				resultat.add(cd);
+			}
+		}
+		return resultat;
+	}
+
+	public ArrayList<CD> rechercher(Selecteur selecteur){
+		ArrayList<CD> resultat = new ArrayList<CD>();
+		for (CD cd : listeCds){
+			if(selecteur.garderCd(cd)){
+				resultat.add(cd);
+			}
+		}
+		return resultat;
+	}
+
+
 
 }

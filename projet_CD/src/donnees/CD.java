@@ -113,5 +113,8 @@ public class CD {
 		return nomCD;
 	}
 
+    public int getNbPistes(){
+		return pistes.size();
+	}
 
 }
